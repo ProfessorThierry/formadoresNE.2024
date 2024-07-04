@@ -20,3 +20,14 @@ const perguntas = [
         ]
     }
 ];
+
+let atual = 0;
+let pertuntaAtual;
+
+
+function mostraPergunta(){
+    perguntaAtual = perguntas[atual];
+caixaPerguntas.textContent = perguntas[atual].enunciado;
+}
+
+mostraPergunta();
