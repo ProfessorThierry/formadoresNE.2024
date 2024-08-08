@@ -1,33 +1,44 @@
+//arquivo para início da Reunião 7
+
 const caixaPrincipal = document.querySelector(".caixa-principal");
 const caixaPerguntas = document.querySelector(".caixa-perguntas");
 const caixaAlternativas = document.querySelector(".caixa-alternativas");
-const caixaResultado = document.querySelector(".caixa-rezultado");
 const caixaResultado = document.querySelector(".caixa-resultado");
+const textoResultado = document.querySelector(".texto-resultado");
 
 const perguntas = [
     {
-        enunciado: "A inteligência artificial está sendo usada para desenvolver  recursos de acessibilidade?",
-        alternativas:[
-            "sim",
-            "Não"
+        enunciado: "Pergunta 1",
+        alternativas: [
+            "Alternativa 1", 
+            "Alternativa 2"
         ]
     },
     {
-        enunciado: "Quais são os desafios enfrentados na criação de tecnologias acessíveis e como podem ser superados?",
+        enunciado: "Pergunta 2",
         alternativas: [
-            "Custos elevados"
-            "Conscientização e educação"
+            "Alternativa 1", 
+            "Alternativa 2"
         ]
-    }
+    } 
 ];
 
 let atual = 0;
-let pertuntaAtual;
-
+let perguntaAtual;
 
 function mostraPergunta(){
     perguntaAtual = perguntas[atual];
-caixaPerguntas.textContent = perguntas[atual].enunciado;
+    caixaPerguntas.textContent = perguntas[atual].enunciado;
+    caixaAlternativas.textContent = "";
+    mostraAlternativas();
+}
+
+function mostraAlternativas(){
+    for (const alternativa of perguntaAtual.alternativas){
+        const botaoAlternativas = document.createElement("button");
+        botaoAlternativas.textContent = alternativa;
+        caixaAlternativas.appendChild(botaoAlternativas);
+    }
 }
 
 mostraPergunta();
