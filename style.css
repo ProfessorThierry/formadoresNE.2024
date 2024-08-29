@@ -27,10 +27,6 @@ h1{
     color: var(--cor-destaque);
 }
 
-.caixa-perguntas{
-    padding-bottom: 10px;
-}
-
 button{
     background-color: var(--cor-secundaria);
     color: var(--cor-texto);

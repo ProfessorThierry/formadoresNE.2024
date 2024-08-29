@@ -51,9 +51,14 @@ let perguntaAtual;
 let historiaFinal = "";
 
 function mostraPergunta(){
+    if(atual >= perguntas.length){
+        mostraResultado();
+        return;
+    }
     perguntaAtual = perguntas[atual];
     caixaPerguntas.textContent = perguntaAtual.enunciado;
     caixaAlternativas.textContent = "";
+    textoResultado.textContent = "";
     mostraAlternativas();
 }
 
@@ -68,9 +73,15 @@ function mostraAlternativas(){
 
 function respostaSelecionada(opcaoSelecionada){
     const afirmacao = opcaoSelecionada.afirmacao;
-    historiaFinal = afirmacao;
+    historiaFinal += afirmacao + " ";
     atual++;
     mostraPergunta();
+}
+
+function mostraResultado(){
+    caixaPerguntas.textContent = "Suas ações mudam o mundo...";
+    textoResultado.textContent = historiaFinal;
+    caixaAlternativas.textContent  = "";
 }
 
 mostraPergunta(); 
